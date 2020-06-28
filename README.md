@@ -2,7 +2,7 @@
 
 [![NuGet version (jaytwo.RuntimeRevelation)](https://img.shields.io/nuget/v/jaytwo.RuntimeRevelation.svg?style=flat-square)](https://www.nuget.org/packages/jaytwo.RuntimeRevelation/)
 
-Making it slightly easier to write a quick CSV.
+Simplifying access to current platform and architecture information.
 
 ## Installation
 
