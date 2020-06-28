@@ -3,6 +3,9 @@ DOCKER_TAG?=jaytwo_runtimerevelation
 
 default: clean build
 
+deps:
+	dotnet tool install -g dotnet-reportgenerator-globaltool
+
 clean: 
 	find . -name bin | xargs --no-run-if-empty rm -vrf
 	find . -name obj | xargs --no-run-if-empty rm -vrf
