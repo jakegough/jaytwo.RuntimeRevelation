@@ -22,7 +22,8 @@ test: unit-test
 unit-test: build
 	rm -rf out/testResults
 	rm -rf out/coverage
-	dotnet test ./test/jaytwo.RuntimeRevelation.Tests \
+	cd ./test/jaytwo.RuntimeRevelation.Tests; \
+		dotnet test \
 		--results-directory ../../out/testResults \
 		--logger "trx;LogFileName=jaytwo.RuntimeRevelation.Tests.trx"
 	reportgenerator \
