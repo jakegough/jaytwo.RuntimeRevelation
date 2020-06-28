@@ -18,9 +18,18 @@ test: unit-test
   
 unit-test: build
 	rm -rf out/testResults
+	rm -rf out/coverage
 	dotnet test ./test/jaytwo.RuntimeRevelation.Tests \
 		--results-directory ../../out/testResults \
 		--logger "trx;LogFileName=jaytwo.RuntimeRevelation.Tests.trx"
+	reportgenerator \
+		-reports:./out/coverage/**/coverage.cobertura.xml \
+		-targetdir:./out/coverage/ \
+		-reportTypes:Cobertura
+	reportgenerator \
+		-reports:./out/coverage/**/coverage.cobertura.xml \
+		-targetdir:./out/coverage/html \
+		-reportTypes:Html
 
 pack:
 	rm -rf out/packed
