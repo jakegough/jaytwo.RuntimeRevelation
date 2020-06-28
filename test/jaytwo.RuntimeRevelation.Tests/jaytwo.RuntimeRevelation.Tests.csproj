@@ -2,18 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\jaytwo.RuntimeRevelation\jaytwo.RuntimeRevelation.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
     <PackageReference Include="Moq" Version="4.14.4" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.2" PrivateAssets="All" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\jaytwo.RuntimeRevelation\jaytwo.RuntimeRevelation.csproj" />
   </ItemGroup>
 
   <!-- stylecop -->
@@ -24,12 +23,13 @@
   </ItemGroup>
 
   <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <StyleCopTreatErrorsAsWarnings>true</StyleCopTreatErrorsAsWarnings>
     <CodeAnalysisRuleSet>$(ProjectDir)..\..\stylecop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <!-- /stylecop -->
-  
-  <!-- code coverage -->
+
+  <!-- coverlet & cobertura -->
   <ItemGroup>
     <PackageReference Include="coverlet.msbuild" Version="2.9.0" PrivateAssets="All" />
   </ItemGroup>
@@ -41,6 +41,6 @@
     <CoverletOutputFormat>cobertura</CoverletOutputFormat>
     <CoverletOutput>$(MSBuildThisFileDirectory)../../out/coverage/$(AssemblyName)/$(TargetFramework)/</CoverletOutput>
   </PropertyGroup>
-  <!-- /code coverage -->
-  
+  <!-- /coverlet & cobertura -->
+
 </Project>

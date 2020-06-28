@@ -3,13 +3,9 @@
   <PropertyGroup>
     <TargetFrameworks>net45;netstandard1.1;netstandard1.3;netstandard1.6;netstandard2.0;netstandard2.1</TargetFrameworks>
     <VersionPrefix>0.1.0</VersionPrefix>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/jakegough/jaytwo.RuntimeRevelation.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <!--
@@ -19,6 +15,18 @@
     //    NETSTANDARD, NETSTANDARD1_1, NETSTANDARD1_3, NETSTANDARD1_6, NETSTANDARD2_0, NETSTANDARD2_1
   -->
 
+  <!-- sourcelink (only needed on the published package project) -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+  <!-- /sourcelink -->
+  
   <!-- stylecop -->
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
@@ -27,12 +35,13 @@
   </ItemGroup>
 
   <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <StyleCopTreatErrorsAsWarnings>true</StyleCopTreatErrorsAsWarnings>
     <CodeAnalysisRuleSet>$(ProjectDir)..\..\stylecop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <!-- /stylecop -->
 
-  <!-- code coverage -->
+  <!-- coverlet & cobertura -->
   <ItemGroup>
     <PackageReference Include="coverlet.msbuild" Version="2.9.0" PrivateAssets="All" />
   </ItemGroup>
@@ -44,6 +53,6 @@
     <CoverletOutputFormat>cobertura</CoverletOutputFormat>
     <CoverletOutput>$(MSBuildThisFileDirectory)../../out/coverage/$(AssemblyName)/$(TargetFramework)/</CoverletOutput>
   </PropertyGroup>
-  <!-- /code coverage -->
+  <!-- /coverlet & cobertura -->
 
 </Project>
